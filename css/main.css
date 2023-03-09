@@ -131,6 +131,7 @@ body {
 }
 
 .card {
+  background-color: var(--card-background-color);
   margin: 1rem;
   padding: 1rem;
   width: 100%;
@@ -139,7 +140,6 @@ body {
   text-align: center;
   color: var(--text-color);
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
   align-content: start;
   place-items: center;
   align-items: center;
@@ -148,8 +148,46 @@ body {
   border-radius: 10px;
 }
 
-.bg-card {
-  background-color: var(--card-background-color);
+@media (orientation: landscape) {
+  .card {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .game-logo{
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .game-info
+  {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .game-buttons
+  {
+    grid-column: 3;
+    grid-row: 1;
+  }
+}
+
+@media (orientation: portrait) {
+  .card {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .game-logo{
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .game-info
+  {
+    grid-column: 1;
+    grid-row: span 2;
+  }
+  .game-buttons
+  {
+    grid-column: 2;
+    grid-row: 2;
+  }
 }
 
 .game-logo {
@@ -164,7 +202,9 @@ body {
 
 }
 .game-buttons {
-
+  display: flex;
+  flex-direction: column;
+  align-content: center;
 }
 
 h1 {
